@@ -1,0 +1,12 @@
+# Rust 构建产物
+/target/
+*.exe
+
+# 本地转发记录（含项目报文，勿入库）
+/logs/
+*.ndjson
+spill/
+
+# 系统杂项
+Thumbs.db
+.DS_Store

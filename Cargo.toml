@@ -1,0 +1,17 @@
+[package]
+name = "ue-mcp-forwarder"
+version = "0.6.0"
+edition = "2021"
+
+# 常驻 MCP 转发层：AI 客户端(stdio) <-> UE 编辑器 MCP(Streamable HTTP)
+# 依赖刻意保持最小：仅 serde/serde_json(协议) + ureq(本地HTTP, 无TLS特性)
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+ureq = { version = "2", default-features = false, features = ["gzip"] }
+
+[profile.release]
+opt-level = "z"      # 体积优先
+lto = true
+strip = true
